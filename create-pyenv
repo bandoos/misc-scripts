@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# set PYENVS_DIR in dotfiles
+# pass name of the env as first arg
+# pass python version as second arg
+# second arg is optional and defaults to /usr/bin/python3.8A
+
+
+
+NAME=$1
+[[ -z "$NAME" ]] && {
+    echo first arg must be env name
+    exit -1
+}
+
+V=$2
+PYTHON_VERSION=${V:='/usr/bin/python3.8'}
+
+
+virtualenv --python=$PYTHON_VERSION $PYENVS_DIR/$NAME
